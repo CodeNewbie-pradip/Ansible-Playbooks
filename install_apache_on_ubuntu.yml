@@ -1,0 +1,14 @@
+---
+- name: Install Apache on Ubuntu
+  hosts: webservers
+  become: true
+
+  tasks:
+    - name: Update APT package list
+      apt:
+        update_cache: yes
+
+    - name: Install Apache2
+      apt:
+        name: apache2
+        state: present
